@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+
+    stages {
+
+	stage('Clean Workspace') {
+	    steps {
+		 sh 'rm -fr *'
+	    }	
+	}
+
+        stage('Clone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/aro0176/demo-react.git'
+            }
+        }
+        
+        stage('Test & Build') {
+            steps {
+                sh "npm install"
+                sh "npm run build"
+                sh "ansible -i hosts.ini all -m ping"
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                ansiblePlaybook installation: 'ansible', inventory: 'hosts.ini', playbook: 'deploy.yml', vaultTmpPath: ''
+            }
+        }
+    }
+    
+    post {
+        failure {
+          emailext(
+            subject: "Échec du pipeline CI/CD",
+            body: "Alerte!!! Alerte!!!! Le Pipeline React a échoue, Veuillez voir le logs pour réparer",
+            to: "aroiorenantsoa@gmail.com"
+        )
+    }
+
+    success {
+        emailext(
+            subject: "Succès du pipeline CI/CD",
+            body: "Le pipeline Reactjs et Fastpi a été exécuté avec succès. Prends soins de toi Mr Toavina",
+            to: "aroiorenantsoa@gmail.com"
+        )
+    }
+}
+
+}
