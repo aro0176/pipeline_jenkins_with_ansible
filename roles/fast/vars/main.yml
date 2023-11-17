@@ -9,5 +9,5 @@
  config_service: "{{ api_name }}.service"
  config_apache: "{{ api_name }}.conf"
  chemin_py: "{{ Dossier_back }}/{{ connexion_db_py }}"
- addr_data = localhost
+ addr_data: localhost
 ...
