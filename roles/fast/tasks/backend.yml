@@ -59,7 +59,7 @@
 
 ####################TEST################################
  - name: Run FastAPI app for testing
-   command: : {{ Dossier_back }}/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000
+   command: {{ Dossier_back }}/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000
    async: 50
 ####################TEST#################################
 
