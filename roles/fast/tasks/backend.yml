@@ -58,9 +58,9 @@
      line: "SQLALCHEMY_DATABASE_URL = 'postgresql://{{ user_data }}:{{ mdp_data }}@{{ addr_data }}:5432/{{ table_data }}'"
 
 ####################TEST################################
- - name: Run FastAPI app for testing
-   shell: {{ Dossier_back }}/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000
-   async: 50
+# - name: Run FastAPI app for testing
+#   shell: {{ Dossier_back }}/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000
+#   async: 50
 ####################TEST#################################
 
  - name: Création Service
