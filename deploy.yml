@@ -6,14 +6,14 @@
    roles:
      - postgresql
 
- - name: Mettre en place la base de donnée
+ - name: Mise en place api back
    hosts: backend
    remote_user: "{{ user }}"
 
    roles:
      - fast
 
- - name: Mettre en place la base de donnée
+ - name: Mettre en place le Front
    hosts: frontend
    remote_user: "{{ user }}"
 
