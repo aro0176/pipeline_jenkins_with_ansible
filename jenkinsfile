@@ -36,15 +36,15 @@ pipeline {
           emailext(
             subject: "Échec du pipeline CI/CD",
             body: "Alerte!!! Alerte!!!! Le Pipeline React a échoue, Veuillez voir le logs pour réparer",
-            to: "aroiorenantsoa@gmail.com"
+            to: "votre mail"
         )
     }
 
     success {
         emailext(
             subject: "Succès du pipeline CI/CD",
-            body: "Le pipeline Reactjs et Fastpi a été exécuté avec succès. Prends soins de toi Mr Toavina",
-            to: "aroiorenantsoa@gmail.com"
+            body: "Le pipeline Reactjs et Fastpi a été exécuté avec succès. Prends soins de toi Mr 匿名",
+            to: "votre mail"
         )
     }
 }
